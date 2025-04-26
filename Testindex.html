@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ADHD・ASD 簡易診断</title>
+  <title>１つめの確認です</title>
   <style>
     body {
       font-family: sans-serif;
@@ -72,45 +72,87 @@
 
 <body>
 
-<h1 style="text-align:center;">ADHD・ASD 簡易診断</h1>
+<h1 style="text-align:center;">１つめの確認です</h1>
 
 <form id="diagnosisForm">
   <div class="question">
-    <label>仕事や学業の課題を完了するのに困難を感じますか？</label>
+    <label>物事を行なうにあたって、難所は乗り越えたのに、詰めが甘くて仕上げ
+るのが困難だったことが、どのくらいの頻度でありますか？</label>
     <select name="q1" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
-      <option value="1">たまにある</option>
-      <option value="2">よくある</option>
-      <option value="3">頻繁にある</option>
-      <option value="4">ほぼ常にある</option>
+      <option value="0">めったにない</option>
+      <option value="1">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
     </select>
   </div>
 
   <div class="question">
-    <label>重要な作業を忘れることが多いですか？</label>
+    <label>計画性を要する作業を行なう際に、作業を順序だてるのが困難だったこ
+とが、どのくらいの頻度でありますか？</label>
     <select name="q2" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
-      <option value="1">たまにある</option>
-      <option value="2">よくある</option>
-      <option value="3">頻繁にある</option>
-      <option value="4">ほぼ常にある</option>
+      <option value="0">めったにない</option>
+      <option value="1">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
     </select>
   </div>
 
   <div class="question">
-    <label>注意を持続するのが難しいと感じますか？</label>
+    <label>約束や、しなければならない用事を忘れたことが、どのくらいの頻度で
+ありますか？</label>
     <select name="q3" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
-      <option value="1">たまにある</option>
-      <option value="2">よくある</option>
-      <option value="3">頻繁にある</option>
-      <option value="4">ほぼ常にある</option>
+      <option value="0">めったにない</option>
+      <option value="1">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
     </select>
   </div>
 
+    <div class="question">
+    <label>じっくりと考える必要のある課題に取り掛かるのを避けたり、遅らせた
+りすることが、どのくらいの頻度でありますか？</label>
+    <select name="q4" required>
+      <option value="">選んでください</option>
+      <option value="0">まったくない</option>
+      <option value="0">めったにない</option>
+      <option value="0">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
+    </select>
+  </div>
+
+  <div class="question">
+    <label>長時間座っていなければならない時に、手足をそわそわと動かしたり、
+もぞもぞしたりすることが、どのくらいの頻度でありますか？</label>
+    <select name="q5" required>
+      <option value="">選んでください</option>
+      <option value="0">まったくない</option>
+      <option value="0">めったにない</option>
+      <option value="0">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
+    </select>
+  </div>
+
+ <div class="question">
+    <label>まるで何かに駆り立てられるかのように過度に活動的になったり、何か
+せずにいられなくなることが、どのくらいの頻度でありますか？</label>
+    <select name="q6" required>
+      <option value="">選んでください</option>
+      <option value="0">まったくない</option>
+      <option value="0">めったにない</option>
+      <option value="0">時々</option>
+      <option value="1">頻繁</option>
+      <option value="1">非常に頻繁</option>
+    </select>
+  </div>
+  
   <button type="submit">診断する</button>
 </form>
 
@@ -127,20 +169,15 @@
     const formData = new FormData(this);
     const scores = Array.from(formData.values()).map(Number); // 数値に変換
 
-    // ADHD簡易判定
-    const positiveCount = scores.filter(score => score >= 2).length;
-    const adhdResult = (positiveCount >= 2) ? "ADHDの可能性があります。" : "ADHDの可能性は低いです。";
-
-    // 総合スコアによるざっくりASD傾向判定
+    // 総合スコアによるADHD傾向判定
     const totalScore = scores.reduce((sum, current) => sum + current, 0);
-    const autismResult = (totalScore >= 5) ? "自閉症スペクトラム傾向が見られます。" : "自閉症スペクトラム傾向は低いです。";
+    const autismResult = (totalScore >= 4) ? "学校に支援を求めてもいいという結果でした。" : "この確認で問題はありませんでした。";
 
     // 結果表示
     document.getElementById('resultText').innerHTML = `
-      <h2>診断結果</h2>
-      <p><strong>ADHD：</strong> ${adhdResult}</p>
-      <p><strong>自閉症傾向：</strong> ${autismResult}</p>
-      <p>※これは簡易スクリーニングです。正式な診断は医療機関にご相談ください。</p>
+      <h2>１つ目の確認結果</h2>
+      <p><strong>確認１つ目：</strong> ${autismResult}</p>
+      <p>※「学校に支援を求めてもいい」と表示された方は、後日用意するチャットボットシステムで深く理解しましょう。</p>
     `;
     document.getElementById('diagnosisForm').style.display = 'none';
     document.getElementById('result').style.display = 'block';
@@ -148,7 +185,7 @@
 
   // Googleフォームへ戻る動作
   function goBackToGoogleForm() {
-    window.location.href = "★ここにあなたのGoogleフォームのURLを入れる★";
+    window.location.href = "https://docs.google.com/forms/d/1OyzExCTgCNR5Ie35FFm0hVLeXtXqu92X25lrrSpS73Q/preview";
   }
 </script>
 
