@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>１つめの確認です</title>
+  <title>確認１</title>
   <style>
     body {
       font-family: sans-serif;
@@ -76,8 +76,7 @@
 
 <form id="diagnosisForm">
   <div class="question">
-    <label>物事を行なうにあたって、難所は乗り越えたのに、詰めが甘くて仕上げ
-るのが困難だったことが、どのくらいの頻度でありますか？</label>
+    <label>物事を行なうにあたって、難所は乗り越えたのに、詰めが甘くて仕上げるのが困難だったことが、どのくらいの頻度でありますか？</label>
     <select name="q1" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -89,8 +88,7 @@
   </div>
 
   <div class="question">
-    <label>計画性を要する作業を行なう際に、作業を順序だてるのが困難だったこ
-とが、どのくらいの頻度でありますか？</label>
+    <label>計画性を要する作業を行なう際に、作業を順序だてるのが困難だったことが、どのくらいの頻度でありますか？</label>
     <select name="q2" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -102,8 +100,7 @@
   </div>
 
   <div class="question">
-    <label>約束や、しなければならない用事を忘れたことが、どのくらいの頻度で
-ありますか？</label>
+    <label>約束や、しなければならない用事を忘れたことが、どのくらいの頻度でありますか？</label>
     <select name="q3" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -115,8 +112,7 @@
   </div>
 
     <div class="question">
-    <label>じっくりと考える必要のある課題に取り掛かるのを避けたり、遅らせた
-りすることが、どのくらいの頻度でありますか？</label>
+    <label>じっくりと考える必要のある課題に取り掛かるのを避けたり、遅らせたりすることが、どのくらいの頻度でありますか？</label>
     <select name="q4" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -128,8 +124,7 @@
   </div>
 
   <div class="question">
-    <label>長時間座っていなければならない時に、手足をそわそわと動かしたり、
-もぞもぞしたりすることが、どのくらいの頻度でありますか？</label>
+    <label>長時間座っていなければならない時に、手足をそわそわと動かしたり、もぞもぞしたりすることが、どのくらいの頻度でありますか？</label>
     <select name="q5" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -141,8 +136,7 @@
   </div>
 
  <div class="question">
-    <label>まるで何かに駆り立てられるかのように過度に活動的になったり、何か
-せずにいられなくなることが、どのくらいの頻度でありますか？</label>
+    <label>まるで何かに駆り立てられるかのように過度に活動的になったり、何かせずにいられなくなることが、どのくらいの頻度でありますか？</label>
     <select name="q6" required>
       <option value="">選んでください</option>
       <option value="0">まったくない</option>
@@ -175,8 +169,8 @@
 
     // 結果表示
     document.getElementById('resultText').innerHTML = `
-      <h2>１つ目の確認結果</h2>
-      <p><strong>確認１つ目：</strong> ${autismResult}</p>
+      <h2>確認１の結果</h2>
+      <p><strong>確認１：</strong> ${autismResult}</p>
       <p>※「学校に支援を求めてもいい」と表示された方は、後日用意するチャットボットシステムで深く理解しましょう。</p>
     `;
     document.getElementById('diagnosisForm').style.display = 'none';
